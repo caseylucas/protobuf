@@ -22,7 +22,7 @@ ALL_PROTO := $(shell find . -not \( -path ./build -prune \) -name '*.proto')
 
 # PHP renderings require the first character of the package prefix to be capitalized.
 # Ex: caseylucas => Caseylucas
-CAPITAL_PACKAGE_PREFIX = $(shell L1=$(PACKAGE_PREFIX); echo $${L1^})
+CAPITAL_PACKAGE_PREFIX = $(shell echo $(PACKAGE_PREFIX) | head -c 1 | tr '[a-z]' '[A-Z]')$(shell echo $(PACKAGE_PREFIX) | cut -c 2-)
 
 .PHONY: help
 help:
