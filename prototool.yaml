@@ -1,0 +1,35 @@
+# See https://github.com/uber/prototool/blob/454821971ee046298879b9c17d4ab1bdd2a6cee8/etc/config/example/prototool.yaml
+# for example options in this file.
+
+excludes:
+  - build
+
+protoc:
+  version: 3.7.1
+lint:
+  group: uber2
+generate:
+  go_options:
+    import_path: .
+    extra_modifiers:
+      # - If a *.proto file imports a *.proto files outside of it's own directory, you must setup a mapping here so that
+      #   the generated go code references the correct package.
+      # - If one *.proto file in a directory is mapped, then all files in the directory should be mapped. Otherwise,
+      #   protoc will complain about conflicting import paths.
+  plugins:
+    - name: go
+      type: go
+      flags: plugins=grpc
+      output: ./build/generated/go
+    - name: js
+      flags: import_style=commonjs
+      output: ./build/generated/ts
+    - name: grpc-web
+      flags: import_style=commonjs+dts,mode=grpcweb
+      output: ./build/generated/ts
+    - name: php
+      output: ./build/generated/php
+    # build java just to make sure that rendering is sane
+    - name: java
+      output: ./build/generated/java
+
