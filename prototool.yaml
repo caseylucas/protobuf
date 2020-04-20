@@ -16,6 +16,10 @@ generate:
       #   the generated go code references the correct package.
       # - If one *.proto file in a directory is mapped, then all files in the directory should be mapped. Otherwise,
       #   protoc will complain about conflicting import paths.
+      caseylucas/second/v1/widget.proto: >-
+        github.com/caseylucas/protobuf-second-go/second/v1
+      caseylucas/second/v1/second_api.proto: >-
+        github.com/caseylucas/protobuf-second-go/second/v1
   plugins:
     - name: go
       type: go

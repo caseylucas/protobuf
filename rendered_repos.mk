@@ -8,10 +8,10 @@ REPOS = \
 protobuf-first-go \
 protobuf-first-ts \
 protobuf-first-php \
-protobuf-second-go
-#protobuf-second-ts \
-#protobuf-third-go \
-#protobuf-third-ts
+protobuf-second-go \
+protobuf-second-ts \
+protobuf-third-go \
+protobuf-third-ts
 
 # The package prefix is used as a prefix for rendered code and should 
 # match the directory prefix for proto files.  Typically it might

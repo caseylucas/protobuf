@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package caseylucas.third.v1;
+
+option csharp_namespace = "Caseylucas.Third.V1";
+option go_package = "thirdv1";
+option java_multiple_files = true;
+option java_outer_classname = "ThirdApiProto";
+option java_package = "com.caseylucas.third.v1";
+option objc_class_prefix = "CTX";
+option php_namespace = "Caseylucas\\Third\\V1";
+
+// Import a protobuf file from another service or shared directory.
+import "caseylucas/second/v1/widget.proto";
+
+// The Third Service is test service that depends on some files in Second service.  Note that this is
+// not typical and generally not recommended.
+service ThirdAPI {
+  // GetPopularWidgets returns popular widgets.
+  rpc GetPopularWidgets(GetPopularWidgetsRequest) returns (GetPopularWidgetsResponse);
+}
+
+message GetPopularWidgetsRequest {}
+
+message GetPopularWidgetsResponse {
+  repeated caseylucas.second.v1.Widget widgets = 1;
+}
