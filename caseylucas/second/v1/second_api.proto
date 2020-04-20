@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package caseylucas.second.v1;
+
+option csharp_namespace = "Caseylucas.Second.V1";
+option go_package = "secondv1";
+option java_multiple_files = true;
+option java_outer_classname = "SecondApiProto";
+option java_package = "com.caseylucas.second.v1";
+option objc_class_prefix = "CSX";
+option php_namespace = "Caseylucas\\Second\\V1";
+
+import "caseylucas/second/v1/widget.proto";
+
+// The Second Service is test service.
+service SecondAPI {
+  // Add a new widget.
+  rpc AddWidget(AddWidgetRequest) returns (AddWidgetResponse);
+}
+
+message AddWidgetRequest {
+  // When adding a new widget, leave the widget_id, created_at_time and update_at_time blank/default. They will
+  // be populated in the response.
+  Widget widget = 1;
+}
+
+message AddWidgetResponse {
+  Widget widget = 1;
+}

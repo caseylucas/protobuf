@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package caseylucas.second.v1;
+
+option csharp_namespace = "Caseylucas.Second.V1";
+option go_package = "secondv1";
+option java_multiple_files = true;
+option java_outer_classname = "WidgetProto";
+option java_package = "com.caseylucas.second.v1";
+option objc_class_prefix = "CSX";
+option php_namespace = "Caseylucas\\Second\\V1";
+
+import "google/protobuf/timestamp.proto";
+
+// Widget is a contrived message for testing.
+message Widget {
+  int64 widget_id = 1;
+  string description = 2;
+  // Time this widget was created.
+  google.protobuf.Timestamp created_at_time = 3;
+  // Time this widget was last updated.  In calls that update data, this field must be populated. If the passed
+  // value does not match the currently known value, the update will fail.  This check prevents incorrect updates
+  // that my have stale data.
+  google.protobuf.Timestamp updated_at_time = 4;
+}

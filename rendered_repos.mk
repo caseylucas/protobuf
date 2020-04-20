@@ -7,8 +7,8 @@
 REPOS = \
 protobuf-first-go \
 protobuf-first-ts \
-protobuf-first-php
-#protobuf-second-go \
+protobuf-first-php \
+protobuf-second-go
 #protobuf-second-ts \
 #protobuf-third-go \
 #protobuf-third-ts
